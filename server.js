@@ -1,4 +1,4 @@
-```javascript
+javascript
 const express = require("express");
 const { Resend } = require("resend");
 const app = express();
@@ -77,14 +77,14 @@ const subject = emailData.escalated
 
 try {
 await resend.emails.send({
-from: "noreply@resend.dev",
+from: "onboarding@resend.dev",
 to: CONFIG.demoEmail,
 subject,
 html: buildEmail(emailData),
 });
 res.status(200).json({ success: true });
 } catch (err) {
-console.error("Resend error:", err);
+console.error(err);
 res.status(500).json({ success: false, error: err.message });
 }
 });
