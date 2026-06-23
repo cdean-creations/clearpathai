@@ -1,4 +1,3 @@
-javascript
 const express = require("express");
 const { Resend } = require("resend");
 const app = express();
