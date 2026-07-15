@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard — ClearPath Voice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="dash-body">
+    <div class="wrap">
+      <header class="site-header">
+        <a class="brand" href="/">ClearPath <span>AI</span></a>
+        <nav>
+          <a href="/">Home</a>
+          <a href="#" id="logoutLink" class="hidden">Log out</a>
+        </nav>
+      </header>
+
+      <section id="loginView" class="panel login-card">
+        <h2>Dashboard login</h2>
+        <p class="muted">Default: admin / change-me (set in .env)</p>
+        <form id="loginForm">
+          <label for="username">Username</label>
+          <input id="username" name="username" autocomplete="username" required />
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required />
+          <p id="loginError" class="error hidden"></p>
+          <div style="margin-top: 1rem">
+            <button class="btn btn-primary" type="submit">Sign in</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="appView" class="hidden">
+        <div class="dash-top">
+          <div>
+            <h1>Leads & calls</h1>
+            <p class="muted" id="businessLine">Loading…</p>
+          </div>
+          <div class="actions">
+            <button class="btn btn-secondary" id="refreshBtn" type="button">Refresh</button>
+            <button class="btn btn-primary" id="testLeadBtn" type="button">Send test lead email</button>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <span class="muted">Leads</span>
+            <strong id="leadCount">0</strong>
+          </div>
+          <div class="stat">
+            <span class="muted">Calls</span>
+            <strong id="callCount">0</strong>
+          </div>
+          <div class="stat">
+            <span class="muted">Urgent</span>
+            <strong id="urgentCount">0</strong>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-bottom: 1rem">
+          <h2>Recent leads</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>When</th>
+                  <th>Caller</th>
+                  <th>Issue</th>
+                  <th>Urgency</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="leadsBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Recent calls</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>When</th>
+                  <th>Caller</th>
+                  <th>Duration</th>
+                  <th>Summary</th>
+                </tr>
+              </thead>
+              <tbody id="callsBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="/dashboard.js"></script>
+  </body>
+</html>
